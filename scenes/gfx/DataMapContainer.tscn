@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://res/maps/temperature.png" type="Texture" id=1]
 [ext_resource path="res://res/maps/ocean.png" type="Texture" id=2]
 [ext_resource path="res://res/maps/height.png" type="Texture" id=3]
 [ext_resource path="res://res/maps/coastal.png" type="Texture" id=4]
-[ext_resource path="res://res/maps/river_proximity.png" type="Texture" id=5]
+[ext_resource path="res://res/maps/freshwater.png" type="Texture" id=5]
 [ext_resource path="res://res/maps/satellite.png" type="Texture" id=6]
-[ext_resource path="res://res/maps/navigable_rivers.png" type="Texture" id=7]
-[ext_resource path="res://res/maps/aridity.png" type="Texture" id=8]
 
 [node name="MapContainer" type="Node2D"]
 
@@ -21,20 +19,10 @@ visible = false
 position = Vector2( 500.01, 250.006 )
 texture = ExtResource( 3 )
 
-[node name="RiverProximityMap" type="Sprite" parent="."]
+[node name="FreshwaterMap" type="Sprite" parent="."]
 visible = false
 position = Vector2( 500.01, 250.006 )
 texture = ExtResource( 5 )
-
-[node name="NavigableRiverMap" type="Sprite" parent="."]
-visible = false
-position = Vector2( 500.01, 250.006 )
-texture = ExtResource( 7 )
-
-[node name="AridityMap" type="Sprite" parent="."]
-visible = false
-position = Vector2( 500.01, 250.006 )
-texture = ExtResource( 8 )
 
 [node name="CoastalMap" type="Sprite" parent="."]
 visible = false

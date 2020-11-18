@@ -3,11 +3,10 @@ extends Node
 var avg_temp
 var mouse_position
 
-var SATELLITE_MAP_SIZE
-var DATA_MAP_SIZE
+var SATELLITE_MAP_SIZE # May be any size
+export var DATA_MAP_SIZE = Vector2(1000, 500)
 
 var MAP_SATELLITE
-var MAP_AVERAGE_TEMPERATURE
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -19,11 +18,6 @@ func _ready():
 	# Once maps are instantiated, store them as variables for ease of access
 	MAP_SATELLITE = $MapCanvas/ViewportContainer/Viewport/MapContainer/SatelliteMap
 	SATELLITE_MAP_SIZE = MAP_SATELLITE.texture.get_size()
-	# Any data map could be used to get data map size as they should all be the same size 
-	DATA_MAP_SIZE = $MapCanvas/ViewportContainer/Viewport/MapContainer/TemperatureMap.texture.get_size()
-	# Get references for all data map files
-	MAP_AVERAGE_TEMPERATURE = $MapCanvas/ViewportContainer/Viewport/MapContainer/TemperatureMap.texture.get_data()
-	MAP_AVERAGE_TEMPERATURE.lock()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -31,20 +25,19 @@ func _process(delta):
 	mouse_position = $MapCanvas/ViewportContainer/Viewport/MapContainer/SatelliteMap.get_global_mouse_position()
 	update_infobox_data()
 
-func get_mouse_position_data(coordinates):
+func get_mouse_position_data():
 	# Get data from data maps based on the mouse's position on canvas
-	#
-	# BEGIN Average temperature. Raw values in F, translate to C because more civilised
-	var average_temperature = MAP_AVERAGE_TEMPERATURE.get_pixel(coordinates.x, coordinates.y)
-	# Multiply R (or any pixel colour channel) by 100, as value is stored as a grayscale float in RGB
-	average_temperature = average_temperature[0] * 100
-	# F to C
-	average_temperature = stepify(((average_temperature - 32) * 5) / 9, 0.1)
-	# END Average temperature
-	#
-	# BEGIN Is sea Y/N
-	# ...WiP...
-	return str(average_temperature)
+	# This populates the value fields in the InfoBox object
+	var coordinates = get_translated_coordinates()
+	var data_values = {
+		"average_temperature": $MapDataReader.get_average_temperature(coordinates),
+		"is_sea": $MapDataReader.get_is_sea(coordinates),
+		"altitude": $MapDataReader.get_altitude(coordinates),
+		"is_coastal": $MapDataReader.get_is_coastal(coordinates),
+		"is_near_river": $MapDataReader.get_is_near_river(coordinates),
+		"is_navigable_river": $MapDataReader.get_is_by_navigable_river(coordinates)
+		}
+	return data_values
 
 func get_translated_coordinates():
 	# Get the mouse position relative to the corner of the map texture
@@ -53,4 +46,9 @@ func get_translated_coordinates():
 	return translated_coordinates
 
 func update_infobox_data():
-	$InfoBox/TemperatureValue.text = get_mouse_position_data(get_translated_coordinates()) + "°C"
+	$InfoBox/TemperatureValue.text = str(get_mouse_position_data()["average_temperature"]) + "°C"
+	$InfoBox/IsSeaValue.text = str(get_mouse_position_data()["is_sea"])
+	$InfoBox/AltitudeValue.text = str(get_mouse_position_data()["altitude"]) + " m"
+	$InfoBox/IsCoastalValue.text = str(get_mouse_position_data()["is_coastal"])
+	$InfoBox/IsNearRiverValue.text = str(get_mouse_position_data()["is_near_river"])
+	$InfoBox/NavigableRiverValue.text = str(get_mouse_position_data()["is_navigable_river"])

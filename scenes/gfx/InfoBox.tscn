@@ -33,10 +33,10 @@ position = Vector2( 0.159103, -0.318192 )
 shape = SubResource( 3 )
 
 [node name="TemperatureLabel" type="Label" parent="."]
-margin_left = 12.0
-margin_top = 20.0
-margin_right = 88.047
-margin_bottom = 67.0
+margin_left = 16.4436
+margin_top = 17.3848
+margin_right = 92.4436
+margin_bottom = 39.3848
 text = "Avg. Temp:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,46 +52,106 @@ __meta__ = {
 }
 
 [node name="IsSeaLabel" type="Label" parent="."]
-margin_left = 14.0
+margin_left = 59.0
 margin_top = 37.0
-margin_right = 81.0
+margin_right = 86.0
 margin_bottom = 64.0
+text = "Sea:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IsSeaValue" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 37.0
+margin_right = 162.0
+margin_bottom = 59.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="IsCoastalLabel" type="Label" parent="."]
-margin_left = 14.0
-margin_top = 37.0
-margin_right = 81.0
-margin_bottom = 64.0
+margin_left = 29.0
+margin_top = 123.0
+margin_right = 96.0
+margin_bottom = 139.0
+text = "Coastal:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="IsFreshWaterLabel" type="Label" parent="."]
-margin_left = 14.0
-margin_top = 37.0
-margin_right = 81.0
-margin_bottom = 64.0
+[node name="IsCoastalValue" type="Label" parent="."]
+margin_left = 81.326
+margin_top = 123.0
+margin_right = 148.326
+margin_bottom = 139.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IsNearRiverLabel" type="Label" parent="."]
+margin_left = 16.5355
+margin_top = 71.6484
+margin_right = 84.5355
+margin_bottom = 98.6484
+text = "Near river:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NavigableRiverLabel" type="Label" parent="."]
+margin_left = 15.6066
+margin_top = 87.4142
+margin_right = 114.607
+margin_bottom = 118.414
+text = "Navigable 
+        river:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NavigableRiverValue" type="Label" parent="."]
+margin_left = 86.0
+margin_top = 101.0
+margin_right = 185.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IsNearRiverValue" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 73.0
+margin_right = 156.0
+margin_bottom = 91.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RainfallLabel" type="Label" parent="."]
-margin_left = 14.0
-margin_top = 37.0
-margin_right = 81.0
-margin_bottom = 64.0
+margin_left = 9.75734
+margin_top = 157.208
+margin_right = 76.7573
+margin_bottom = 184.208
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeightLabel" type="Label" parent="."]
-margin_left = 14.0
-margin_top = 37.0
-margin_right = 81.0
-margin_bottom = 64.0
+[node name="AltitudeLabel" type="Label" parent="."]
+margin_left = 29.0
+margin_top = 54.0
+margin_right = 84.0
+margin_bottom = 70.0
+text = "Altitude:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AltitudeValue" type="Label" parent="."]
+margin_left = 85.5687
+margin_top = 53.2929
+margin_right = 140.569
+margin_bottom = 80.2929
 __meta__ = {
 "_edit_use_anchors_": false
 }

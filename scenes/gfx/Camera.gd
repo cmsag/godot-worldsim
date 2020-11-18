@@ -39,12 +39,10 @@ func get_cursor_zoom_pos():
 func zoom_out():
 	if zoom <= MIN_ZOOM:
 		zoom += ZOOM_STEP
-	print(zoom)
 
 func zoom_in():
 	if zoom >= MAX_ZOOM:
 		zoom -= ZOOM_STEP
-	print(zoom)
 
 func navigate_map():
 	var ref = get_viewport().get_mouse_position()

@@ -1,0 +1,6 @@
+GROUPS:
+    A group is a collection of people with shared culture, religion and technology values.
+    
+EXPEDITIONS:
+    Expeditions are tied to Groups. They are subsets of a Group's population which, as it grows and shrinks and its composition changes, will be reflected in the main Group.
+    Groups may send out one Expedition at a time per ten thousand members. Expeditions travel to one or two destinations with a particular purpose, and once their purpose is complete the Expedition ceases to exist. It may create a new Group at its endpoint, or interact with another Group or piece of land and return to its main Group as a final destination.

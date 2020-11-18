@@ -1,0 +1,2 @@
+NAVIGABLE RIVERS:
+    This map determines regions in which travel of Groups and Expeditions with riverboat technology is vastly increased by the presence of nearby navigable rivers.
